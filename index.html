@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<head>
+  <title>Video Player</title>
+</head>
+<style>
+
+    .heading{
+        padding:15px 0;
+        text-align: center;
+    }
+    .video-wrap {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        max-width: fit-content;
+        margin:auto;
+    }
+    .video-wrap video {
+        width: 100%;
+        max-width:100%;
+        
+    }
+    .control-btn {
+        position: absolute;
+        bottom: 15%;
+        right: 0;
+        display: flex;
+        flex-direction: column;
+    }
+    .control-btn .form-control {
+        background-image: linear-gradient(90deg, #d93532, #b12b31 50%);
+        margin-bottom: 6px;
+        color: #fff;
+        padding: 5px;
+        border-radius: 10px 0 0 10px;
+        font-size: 20px;
+        text-transform: capitalize;
+        cursor: pointer;
+        box-shadow: 0px 4px 5px 0px rgba(0,0,0,0.5);
+    }
+    .control-btn .form-control input {
+        appearance: none;
+    }
+    .mb-logo {
+        position: absolute;
+        top: 0;
+        right: 0;
+        max-width: 23%;
+    }
+    </style>
+<body>    
+    <h1 class="heading">Automation properties video</h1>
+  <div class="container video-wrap">
+    <video id="videoPlayer" controls autoplay loop>
+      <!-- <source src="locality_property_project_background_images_check_3_1.mov"> -->
+      <source src="mg.mp4">
+      Your browser does not support the video tag.
+    </video>
+    <img src="mb-logo.png" class="mb-logo" alt="Magicbricks">
+    <div class="control-btn">
+        <div class="form-control">
+            <input type="radio" id="startFromBeginning" name="startPosition" checked>
+            <label for="startFromBeginning">Explore properties</label>
+        </div>
+        <div class="form-control">
+            <input type="radio" id="startFrom34thSecond" name="startPosition">
+            <label for="startFrom34thSecond">Explore locality</label>
+        </div>
+        <div class="form-control">
+            <input type="radio" id="startFrom80thSecond" name="startPosition">
+            <label for="startFrom80thSecond">Explore project</label>
+        </div>
+    </div>
+  </div>
+
+  <script>
+    // Get the video element
+    var video = document.getElementById("videoPlayer");
+   
+    // Get the radio buttons
+    var startFromBeginningRadio = document.getElementById("startFromBeginning");
+    var startFrom34thSecondRadio = document.getElementById("startFrom34thSecond");    
+    var startFrom80thSecondRadio = document.getElementById("startFrom80thSecond");
+   
+    // Add event listener to the radio buttons
+    startFromBeginningRadio.addEventListener("change", function() {
+      if (startFromBeginningRadio.checked) {
+        // Start the video from the beginning
+        video.currentTime = 0;
+      }
+    });
+   
+    startFrom34thSecondRadio.addEventListener("change", function() {
+      if (startFrom34thSecondRadio.checked) {
+        // Start the video from the 34th second
+        video.currentTime = 34;
+      }
+    });
+
+    startFrom80thSecondRadio.addEventListener("change", function() {
+      if (startFrom80thSecondRadio.checked) {
+        // Start the video from the 34th second
+        video.currentTime = 80;
+      }
+    });
+  </script>
+</body>
+</html>
